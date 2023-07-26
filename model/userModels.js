@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
-const contactoSchema = new Schema({
+const servicioSchema = new Schema({
   nombre: {
+    type: String,
+    required: true,
+  },
+  apellido: {
     type: String,
     required: true,
   },
@@ -10,7 +14,7 @@ const contactoSchema = new Schema({
     type: String,
     required: true,
   },
-  mensaje: {
+  celular: {
     type: String,
     required: true,
   },
@@ -20,4 +24,4 @@ const contactoSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Contacto', contactoSchema);
+module.exports = mongoose.model('Servicio', servicioSchema);
