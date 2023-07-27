@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config();
 const PORT = process.env.PORT;
 require('./conexion/conexion');
 const Usuario = require('./model/userModel');
+const Servicio = require('./model/userModels');
 
 const app = express();
 
@@ -37,10 +38,10 @@ app.post('/contactos', async (req, res) => {
   });
 });
 
-/* Insertamos nuevos clientes de servicio */
+/* Insertamos nuevos clientes de servicio y servicios seleccionados */
 app.post('/servicios', async (req, res) => {
   console.log(req.body);
-  const { nombre, apellido, email, celular } = req.body;
+  const { nombre, apellido, email, celular, servicios} = req.body;
 
   console.log(`Mi nombre es ${nombre}, mi apellido es ${apellido}, mi email es ${email} y el celular ${celular}`);
 
@@ -49,6 +50,7 @@ app.post('/servicios', async (req, res) => {
     apellido,
     email,
     celular,
+    servicios,
   });
 
   console.log(`Nuevo servicio a guardar: ${nuevoServicio}`);
